@@ -1,5 +1,6 @@
-#Counting Users
+Counting Users
 ==============
+
 Version 0.1
 
 UA
@@ -16,7 +17,6 @@ UA
 3. Кешування результатів
 
 4. Відображення в header і footer
-. 
 
 
 Інструкція по установці 
@@ -53,6 +53,6 @@ RU
 4. После установки добавить в любом месте header.tpl или footer.tpl:{HEADER_COUNTER_TAG}, {FOOTER_COUNTER_TAG} соответственно. 
 
 По желанию отредактируйте шаблоны.
--
+
 
 Розробник - Ярослав Романенко ( yaroslav.romanenko@gmail.com )
