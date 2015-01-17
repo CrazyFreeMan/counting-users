@@ -10,7 +10,7 @@ Tags=header.tpl:{HEADER_COUNTER_TAG}
  * countinguser
  *
  * @package countinguser
- * @version 0.9.0
+ * @version 0.2
  * @author CrazyFreeMan
  * @copyright Copyright (c) CrazyFreeMan 2014
  * @license BSD
@@ -38,5 +38,3 @@ $t1->parse('MAIN');
 $t->assign('HEADER_COUNTER_TAG', $t1->text('MAIN'));
 
 }
-
-

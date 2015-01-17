@@ -1,8 +1,8 @@
 <?php
 /* ====================
 [BEGIN_COT_EXT]
-Hooks=footer.tags
-Tags=footer.tpl:{FOOTER_COUNTER_TAG}
+Hooks=index.tags
+Tags=index.tpl:{INDEX_COUNTER_TAG}
 [END_COT_EXT]
 ==================== */
 
@@ -24,17 +24,17 @@ require_once cot_incfile('countingusers', 'plug');
 
 $result = get_count_of_user();
 
-$t1 = new XTemplate(cot_tplfile('countingusers.footer', 'plug'));
+$t1 = new XTemplate(cot_tplfile('countingusers.index', 'plug'));
 
 $arr = array();
 foreach($result as $counter =>$next_lvl_arr)
 {
 	foreach ($next_lvl_arr as $key => $value) {
-		$arr["FOOTER_COUNT_".$counter."_".$key] = $value;			
+		$arr["INDEX_COUNT_".$counter."_".$key] = $value;			
 	}	
 }
 $t1->assign($arr);
 $t1->parse('MAIN');
-$t->assign('FOOTER_COUNTER_TAG', $t1->text('MAIN'));
+$t->assign('INDEX_COUNTER_TAG', $t1->text('MAIN'));
 
 }

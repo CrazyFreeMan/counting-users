@@ -91,5 +91,3 @@ defined('COT_CODE') or die('Wrong URL');
 		global $db, $db_projects;
 		return $db->query("SELECT COUNT(*) FROM $db_projects WHERE item_state=".$prjs_status_id."")->fetchColumn();
 	}
-
-?>

@@ -4,7 +4,7 @@
 Name=Counting Users
 Code=Counting Users
 Description=Подсчет и отображение количества пользователей и проектов для Фриланс биржи
-Version=0.1
+Version=0.2
 Date=2014-jun-16
 Author=CrazyFreeMan
 Copyright=(c) CrazyFreeMan
