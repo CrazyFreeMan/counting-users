@@ -1,5 +1,11 @@
 <!-- BEGIN: MAIN -->			
  			<table class="table table-striped">
+ 				<!-- IF {INDEX_COUNT_USR_ALL} -->
+				<tr>
+					<td>{PHP.L.fr_users_title}</td>
+					<td><span class="label label-info">{INDEX_COUNT_USR_ALL}</span></td>
+				</tr>
+				<!-- ENDIF -->
  				<!-- IF {INDEX_COUNT_USR_4} -->
 				<tr>
 					<td>{PHP.L.fr_freelancers_title}</td>

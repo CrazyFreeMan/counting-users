@@ -1,5 +1,11 @@
 <!-- BEGIN: MAIN -->			
  			<table class="table table-striped">
+ 				<!-- IF {HEADER_COUNT_USR_ALL} -->
+				<tr>
+					<td>{PHP.L.fr_users_title}</td>
+					<td><span class="label label-info">{HEADER_COUNT_USR_ALL}</span></td>
+				</tr>
+				<!-- ENDIF -->
  				<!-- IF {HEADER_COUNT_USR_4} -->
 				<tr>
 					<td>{PHP.L.fr_freelancers_title}</td>
@@ -24,6 +30,5 @@
 					<td><span class="label label-info">{HEADER_COUNT_PRJ_0}</span></td>
 				</tr>
 				<!-- ENDIF -->
-			</table>
- 
+			</table> 
 <!-- END: MAIN -->

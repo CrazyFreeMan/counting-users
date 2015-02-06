@@ -10,7 +10,7 @@ Tags=header.tpl:{HEADER_COUNTER_TAG}
  * countinguser
  *
  * @package countinguser
- * @version 0.2
+ * @version 0.3
  * @author CrazyFreeMan
  * @copyright Copyright (c) CrazyFreeMan 2014
  * @license BSD
