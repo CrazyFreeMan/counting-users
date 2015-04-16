@@ -68,6 +68,12 @@ defined('COT_CODE') or die('Wrong URL');
 							$result["PRJ"][$value] =get_prjs_count($value);
 							}
 						}
+					}
+
+				if($cfg['plugin']['countingusers']['projects_from'] > 0){
+					global $db, $db_projects, $sys;
+					$openfrom = $sys['now'] - (int) $cfg['plugin']['countingusers']['projects_from'];					
+					$result["PRJ"]["OPENFROM"] = $db->query("SELECT COUNT(*) FROM $db_projects WHERE item_state = 0 AND item_date > ".$openfrom)->fetchColumn();
 				}
 			}
 			return $result;
@@ -78,5 +84,5 @@ defined('COT_CODE') or die('Wrong URL');
 	}
 	function get_prjs_count($prjs_status_id){
 		global $db, $db_projects;
-		return $db->query("SELECT COUNT(*) FROM $db_projects WHERE item_state=".$prjs_status_id."")->fetchColumn();
+		return $db->query("SELECT COUNT(*) FROM $db_projects WHERE item_state=".$prjs_status_id)->fetchColumn();
 	}

@@ -30,6 +30,11 @@
 					<td><span class="label label-info">{INDEX_COUNT_PRJ_0}</span></td>
 				</tr>
 				<!-- ENDIF -->
-			</table>
- 
+				<!-- IF !{INDEX_COUNT_PRJ_OPENFROM} == '' -->
+				<tr>
+					<td>{PHP.L.fr_projects_from_title}</td>
+					<td><span class="label label-info">{INDEX_COUNT_PRJ_OPENFROM}</span></td>
+				</tr>
+				<!-- ENDIF -->
+			</table> 
 <!-- END: MAIN -->

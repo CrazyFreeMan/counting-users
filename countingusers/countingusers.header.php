@@ -5,17 +5,15 @@ Hooks=header.tags
 Tags=header.tpl:{HEADER_COUNTER_TAG}
 [END_COT_EXT]
 ==================== */
-
 /**
  * countinguser
  *
  * @package countinguser
- * @version 0.3
+ * @version 0.4
  * @author CrazyFreeMan
  * @copyright Copyright (c) CrazyFreeMan 2014
  * @license BSD
  */
-
 defined('COT_CODE') or die('Wrong URL');
 
 if (cot_plugin_active('countingusers')) {
@@ -36,5 +34,4 @@ foreach($result as $counter =>$next_lvl_arr)
 $t1->assign($arr);
 $t1->parse('MAIN');
 $t->assign('HEADER_COUNTER_TAG', $t1->text('MAIN'));
-
 }
