@@ -20,7 +20,7 @@ if (cot_plugin_active('countingusers')) {
 
 require_once cot_incfile('countingusers', 'plug');
 
-$result = get_count_of_user();
+$result = get_count_of();
 
 $t1 = new XTemplate(cot_tplfile('countingusers.footer', 'plug'));
 

@@ -36,5 +36,11 @@
 					<td><span class="label label-info">{INDEX_COUNT_PRJ_OPENFROM}</span></td>
 				</tr>
 				<!-- ENDIF -->
+				<!-- IF {INDEX_COUNT_PRD_0} -->
+				<tr>
+					<td>{PHP.L.fr_market_title}</td>
+					<td><span class="label label-info">{INDEX_COUNT_PRD_0}</span></td>
+				</tr>
+				<!-- ENDIF -->
 			</table> 
 <!-- END: MAIN -->

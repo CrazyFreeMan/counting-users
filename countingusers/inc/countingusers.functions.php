@@ -11,7 +11,7 @@
 defined('COT_CODE') or die('Wrong URL');
 
 	require_once cot_langfile('countingusers', 'plug');
-	function get_count_of_user() {			
+	function get_count_of() {			
 		global  $cfg;
 		if($cfg['plugin']['countingusers']['cache_db'] == 1){ //Если включен кеш запроса
 			$result = check_cache(); //получить кеш
@@ -38,7 +38,7 @@ defined('COT_CODE') or die('Wrong URL');
 	function get_data(){
 		global $cfg;
 				//Если включен подсчет пользователей
-			if ($cfg['plugin']['countingusers']['count_usr'] == 1)
+			if ($cfg['plugin']['countingusers']['count_usr'])
 			{
 				$count_usr = str_replace(' ', '', $cfg['plugin']['countingusers']['user_maingrp_count']);
 				$count_usr = explode(',', $count_usr);
@@ -53,7 +53,7 @@ defined('COT_CODE') or die('Wrong URL');
 					}
 			}
 				//Если включен подсчет проектов
-			if ($cfg['plugin']['countingusers']['count_prj'] == 1)
+			if ($cfg['plugin']['countingusers']['count_prj'] && cot_module_active('projects'))
 			{
 
 				$count_prj = str_replace(' ', '', $cfg['plugin']['countingusers']['projects_item_state']);
@@ -76,6 +76,11 @@ defined('COT_CODE') or die('Wrong URL');
 					$result["PRJ"]["OPENFROM"] = $db->query("SELECT COUNT(*) FROM $db_projects WHERE item_state = 0 AND item_date > ".$openfrom)->fetchColumn();
 				}
 			}
+			//Если включен подсчет товаров
+			if ($cfg['plugin']['countingusers']['market_count'] && cot_module_active('market'))
+			{
+				$result["PRD"]["0"]	= get_prds_count(0);				
+			}
 			return $result;
 	}
 	function get_usrs_count($grp_id){
@@ -85,4 +90,8 @@ defined('COT_CODE') or die('Wrong URL');
 	function get_prjs_count($prjs_status_id){
 		global $db, $db_projects;
 		return $db->query("SELECT COUNT(*) FROM $db_projects WHERE item_state=".$prjs_status_id)->fetchColumn();
+	}
+	function get_prds_count($prds_status_id){
+		global $db, $db_market;
+		return $db->query("SELECT COUNT(*) FROM $db_market WHERE item_state=".(int)$prds_status_id)->fetchColumn();
 	}
