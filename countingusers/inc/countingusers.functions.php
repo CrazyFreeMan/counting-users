@@ -24,13 +24,15 @@ defined('COT_CODE') or die('Wrong URL');
 	function check_cache() {
 		global $cfg, $db, $cache;	
 			// получаем из кеша 
-			$result = $cache->db->get('counter_user', 'countingusers');
-			if (is_null($result))
+			$result = ($cache) ? $cache->db->get('counter_user', 'countingusers') : '' ;
+			if (is_null($result) || empty($result))
 			{
 			    // кеш пуст, надо обновить			    
 				$result = get_data(); //получить данные
-				if(is_numeric($cfg['plugin']['countingusers']['cache_db_ttl']))
-			    $cache->db->store('counter_user', $result, 'countingusers', $cfg['plugin']['countingusers']['cache_db_ttl']);	    
+				if($cache) {
+					if(is_numeric($cfg['plugin']['countingusers']['cache_db_ttl']))
+			   		$cache->db->store('counter_user', $result, 'countingusers', $cfg['plugin']['countingusers']['cache_db_ttl']);	    
+				}
 			}		
 		return $result;
 	}
